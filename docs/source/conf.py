@@ -21,10 +21,6 @@ project = "navigate-mmcore-plugin"
 copyright = "2023, Dean Lab, UT Southwestern Medical Center"
 author = "Dean Lab, UT Southwestern Medical Center"
 
-# The full version, including alpha/beta/rc tags
-release = __version__
-
-# -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
