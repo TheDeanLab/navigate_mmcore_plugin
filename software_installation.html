@@ -49,9 +49,25 @@
               <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Plugin Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#quick-install">Quick install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#launching-navigate">Launching <strong>navigate</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-the-plugin">Installing the Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-navigate">Install navigate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-navigate-mmcore-plugin">Install navigate-mmcore-plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#activate-the-navigate-environment">Activate the navigate Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-navigate-mmcore-plugin">Clone <strong>navigate-mmcore-plugin</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-navigate-software">Run <strong>navigate</strong> Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-navigate-mmcore-plugin">Installing the <strong>navigate-mmcore-plugin</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-micro-manager">Install Micro-Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-devices-in-micro-manager">Configure Devices in Micro-Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-your-windows-environment">Configure your Windows Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-the-configuration-files">Modify the Configuration Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-navigate-mmcore-plugin-configuration-file">Configure <em>navigate-mmcore-plugin</em> configuration file.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-navigate-configuration-file">Configure the <strong>navigate</strong> configuration file.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#launch-the-software">Launch the Software</a></li>
 </ul>
 </li>
 </ul>
@@ -86,61 +102,145 @@
              
   <section id="plugin-installation">
 <h1>Plugin Installation<a class="headerlink" href="#plugin-installation" title="Permalink to this heading"></a></h1>
-<section id="quick-install">
-<h2>Quick install<a class="headerlink" href="#quick-install" title="Permalink to this heading"></a></h2>
-<p><strong>Setup your Python Environment</strong></p>
-<p>Head over to the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links">miniconda website</a>
-and install the appropriate version based on your operating system.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>It is also handy to have the <a class="reference external" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">conda cheatsheet</a>
-open when first using miniconda to get accustomed to the commands available.</p>
-</div>
-<ul class="simple">
-<li><p>Windows: Use the Windows taskbar search to find <code class="docutils literal notranslate"><span class="pre">Anaconda</span> <span class="pre">Prompt</span> <span class="pre">(Miniconda3)</span></code>.
-Given how frequently you will use this, we recommend pinning it to your taskbar.</p></li>
-<li><p>Linux/Mac: Open a Terminal.</p></li>
-</ul>
-<p><strong>Create a Python environment called navigate that uses Python version 3.9.7</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(base)</span> <span class="go">MyComputer ~ $ conda create -n navigate python=3.9.7</span>
-</pre></div>
-</div>
-<p><strong>Activate the navigate environment</strong></p>
+<section id="install-navigate">
+<h2>Install navigate<a class="headerlink" href="#install-navigate" title="Permalink to this heading"></a></h2>
+<p>This guide assumes that the latest version of <strong>navigate</strong> has been
+installed and is functional. If not, please refer to the <a class="reference external" href="https://thedeanlab.github.io/navigate/software_installation.html">installation guide</a> in <strong>navigate</strong>’s
+documentation.</p>
+</section>
+<hr class="docutils" />
+<section id="install-navigate-mmcore-plugin">
+<h2>Install navigate-mmcore-plugin<a class="headerlink" href="#install-navigate-mmcore-plugin" title="Permalink to this heading"></a></h2>
+<p>Once <strong>navigate</strong> is installed, the next step is to install the <strong>navigate-mmcore-plugin</strong>.
+Broadly, this consists of activating the <strong>navigate</strong> environment, cloning the
+<strong>navigate-mmcore-plugin</strong> repository, and installing the plugin.</p>
+<section id="activate-the-navigate-environment">
+<h3>Activate the navigate Environment<a class="headerlink" href="#activate-the-navigate-environment" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(base)</span> <span class="go">MyComputer ~ $ conda activate navigate</span>
 </pre></div>
 </div>
-<p>The active environment is shown in parentheses on the far-left.  Originally, we were in
-the miniconda <code class="docutils literal notranslate"><span class="pre">(base)</span></code> environment. After activating the navigate environment, it
-should now show <code class="docutils literal notranslate"><span class="pre">(navigate)</span></code>.</p>
-<p><strong>Install navigate-mmcore-plugin</strong></p>
-<p>To install the latest version of <strong>navigate-mmcore-plugin</strong>, run the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(navigate)</span> <span class="go">MyComputer ~ $ pip install git+https://github.com/TheDeanLab/navigate-mmcore-plugin.git</span>
+</section>
+<section id="clone-navigate-mmcore-plugin">
+<h3>Clone <strong>navigate-mmcore-plugin</strong><a class="headerlink" href="#clone-navigate-mmcore-plugin" title="Permalink to this heading"></a></h3>
+<p>Clone the latest version of <strong>navigate-mmcore-plugin</strong>, change your directory to its
+root folder (e.g., <code class="docutils literal notranslate"><span class="pre">D://path/to/navigate-mmcore-plugin/</span></code>, and install the libraries
+necessary to run <strong>navigate-mmcore-plugin</strong> using the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(navigate)</span> <span class="go">MyComputer ~ $ pip install -e .</span>
 </pre></div>
 </div>
-<p><strong>Run navigate software</strong></p>
+</section>
+<section id="run-navigate-software">
+<h3>Run <strong>navigate</strong> Software<a class="headerlink" href="#run-navigate-software" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(navigate)</span> <span class="go">MyComputer ~ $ navigate</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are running the software on a computer that is not connected to microscope
-hardware, you can add the flag <code class="docutils literal notranslate"><span class="pre">-sh</span></code> (<code class="docutils literal notranslate"><span class="pre">--synthetic-hardware</span></code>) to launch the
-program:</p>
+<p>If you are running the software on a computer that is not connected to any
+microscope hardware, you can add the flag <code class="docutils literal notranslate"><span class="pre">-sh</span></code> (<code class="docutils literal notranslate"><span class="pre">--synthetic-hardware</span></code>) to
+launch the program:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">navigate -sh</span>
 </pre></div>
 </div>
 </div>
 </section>
-<section id="launching-navigate">
-<h2>Launching <strong>navigate</strong><a class="headerlink" href="#launching-navigate" title="Permalink to this heading"></a></h2>
-<p>Open an <code class="docutils literal notranslate"><span class="pre">Anaconda</span> <span class="pre">Prompt</span> <span class="pre">(Miniconda3)</span></code> and enter the following.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(base)</span> <span class="go">conda activate navigate</span>
-<span class="gp gp-VirtualEnv">(navigate)</span> <span class="go">navigate</span>
+<section id="installing-the-navigate-mmcore-plugin">
+<h3>Installing the <strong>navigate-mmcore-plugin</strong><a class="headerlink" href="#installing-the-navigate-mmcore-plugin" title="Permalink to this heading"></a></h3>
+<p>Once <strong>navigate</strong> is running, you can install the plugin by selecting the menu
+<span class="menuselection">Plugins ‣ Install Plugin</span> and selecting the <strong>navigate-mmcore-plugin</strong>
+folder. <strong>navigate</strong> will automatically install the plugin and prompt you to restart
+the software. After restarting, the plugin will be available in the <strong>navigate</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="install-micro-manager">
+<h2>Install Micro-Manager<a class="headerlink" href="#install-micro-manager" title="Permalink to this heading"></a></h2>
+<p>Once <strong>navigate</strong> and the <strong>navigate-mmcore-plugin</strong> are installed, you need to install
+and configure Micro-Manager.</p>
+<p>Download the nightly build of Version 2.0 of <strong>Micro-Manager</strong> from the
+<a class="reference external" href="https://micro-manager.org/Micro-Manager_Nightly_Builds">Micro-Manager website</a></p>
+<p>Detailed information on how to install <strong>Micro-Manager</strong> can be found <a class="reference external" href="https://micro-manager.org/Micro-Manager_Installation_Notes">here</a>.</p>
+<section id="configure-devices-in-micro-manager">
+<h3>Configure Devices in Micro-Manager<a class="headerlink" href="#configure-devices-in-micro-manager" title="Permalink to this heading"></a></h3>
+<p>Next you should configure the devices in <strong>Micro-Manager</strong>. This is done by opening the
+Micro-Manager and using the Hardware Configuration Wizard. Importantly, all of the
+devices should be confirmed functional in <strong>Micro-Manager</strong> before proceeding to the next step.</p>
+<p>Installation details for each device can be found <a class="reference external" href="https://micro-manager.org/Device_Support">here</a>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="configure-your-windows-environment">
+<h2>Configure your Windows Environment<a class="headerlink" href="#configure-your-windows-environment" title="Permalink to this heading"></a></h2>
+<p>Next, you need to make sure that Windows knows where to find the Micro-Manager
+device files. This is done by adding the path to the Micro-Manager device files
+to the Windows environment variables.</p>
+<ol class="arabic simple">
+<li><p>Open the Windows Control Panel.</p></li>
+<li><p>Click on System and Security.</p></li>
+<li><p>Click on System.</p></li>
+<li><p>Click on Advanced system settings.</p></li>
+<li><p>Click on Environment Variables.</p></li>
+<li><p>Double click on the Path variable in the System variables section.</p></li>
+<li><p>Click on New and add the path to the Micro-Manager device files. This is
+typically <code class="docutils literal notranslate"><span class="pre">C:\\Program</span> <span class="pre">Files\\Micro-Manager-2.0</span></code>.</p></li>
+</ol>
+<p>Once this is complete, restart your Anaconda Prompt so that the new Path variable
+is recognized.</p>
+</section>
+<hr class="docutils" />
+<section id="modify-the-configuration-files">
+<h2>Modify the Configuration Files<a class="headerlink" href="#modify-the-configuration-files" title="Permalink to this heading"></a></h2>
+<section id="configure-navigate-mmcore-plugin-configuration-file">
+<h3>Configure <em>navigate-mmcore-plugin</em> configuration file.<a class="headerlink" href="#configure-navigate-mmcore-plugin-configuration-file" title="Permalink to this heading"></a></h3>
+<p>Next, you will need to modify the configuration file for the <strong>navigate-mmcore-plugin</strong>.
+Provide it with the name of the plugin, the view type (e.g., if it should be displayed
+as a tab or a popup), and the path to the Micro-Manager device adapter.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MMCore Plugin</span>
+<span class="nt">view</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Popup</span><span class="w"> </span><span class="c1"># Tab or Popup if has an GUI</span>
+
+<span class="nt">device_adapter_path</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;C:\\Program</span><span class="nv"> </span><span class="s">Files\\Micro-Manager-2.0&quot;</span>
 </pre></div>
 </div>
 </section>
-<section id="installing-the-plugin">
-<h2>Installing the Plugin<a class="headerlink" href="#installing-the-plugin" title="Permalink to this heading"></a></h2>
+<section id="configure-the-navigate-configuration-file">
+<h3>Configure the <strong>navigate</strong> configuration file.<a class="headerlink" href="#configure-the-navigate-configuration-file" title="Permalink to this heading"></a></h3>
+<p>Finally, you will need to modify the <strong>navigate</strong> configuration file to include the
+device that you wish to use. For example, if we were to be configuring MMCore to
+use a Physik Instrumente (PI) stage, the configuration file would look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MMCore</span>
+<span class="w">    </span><span class="nt">controllername</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C-884</span>
+<span class="w">    </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">L-509.20DG10 L-509.40DG10 L-509.20DG10 M-060.DG M-406.4PD NOSTAGE</span>
+<span class="w">    </span><span class="nt">refmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FRF FRF FRF FRF FRF FRF</span>
+<span class="w">    </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">119060508</span>
+<span class="w">    </span><span class="nt">config_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Program</span><span class="nv"> </span><span class="s">Files\\Micro-Manager-2.0\\test.cfg&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PI</span>
+<span class="w">    </span><span class="nt">controllername</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">E-709</span>
+<span class="w">    </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P-726.1CD</span>
+<span class="w">    </span><span class="nt">refmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ATZ</span>
+<span class="w">    </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0116049747</span>
+<span class="w">  </span><span class="p p-Indicator">-</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SyntheticStage</span>
+<span class="w">    </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">01234</span>
+</pre></div>
+</div>
+<p>Here, the first stage in the list, which is type <code class="docutils literal notranslate"><span class="pre">MMCore</span></code>, is the stage that will be
+used by the <strong>navigate-mmcore-plugin</strong>. The <code class="docutils literal notranslate"><span class="pre">controllername</span></code> is the name of the stage
+controller in Micro-Manager, the <code class="docutils literal notranslate"><span class="pre">stages</span></code> are the stages that are available to the
+controller, the <code class="docutils literal notranslate"><span class="pre">refmode</span></code> is the reference mode of the stage, the <code class="docutils literal notranslate"><span class="pre">serial_number</span></code> is
+the serial number of the stage, and the <code class="docutils literal notranslate"><span class="pre">config_path</span></code> is the path to the Micro-Manager
+configuration file.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="launch-the-software">
+<h2>Launch the Software<a class="headerlink" href="#launch-the-software" title="Permalink to this heading"></a></h2>
+<p>Once the configuration files have been modified, you can launch <strong>navigate</strong> and the
+<strong>navigate-mmcore-plugin</strong>. The plugin will automatically connect to the Micro-Manager
+device adapter and the devices will be available for use in <strong>navigate</strong>.</p>
 </section>
 </section>
 
@@ -155,7 +255,7 @@ program:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Dean Lab, UT Southwestern Medical Center.</p>
+    <p>&#169; Copyright 2024, Dean Lab, UT Southwestern Medical Center.</p>
   </div>
 
    

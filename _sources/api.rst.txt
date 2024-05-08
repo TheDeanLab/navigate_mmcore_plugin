@@ -6,9 +6,6 @@ API
    :template: custom_module.rst
    :recursive:
 
-   .. navigate.config
-   .. navigate.controller
-   .. navigate.log_files
-   .. navigate.model
-   .. navigate.tools
-   .. navigate.view
+   .. navigate-mmcore-plugin.mmcore_plugin.controller
+   .. navigate-mmcore-plugin.mmcore_plugin.model
+   .. navigate-mmcore-plugin.mmcore_plugin.view
