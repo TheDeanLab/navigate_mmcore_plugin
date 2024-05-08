@@ -1,30 +1,13 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
 import os
 import sys
-sys.path.insert(0, os.path.abspath("../../src"))
 
-
-# -- Project information -----------------------------------------------------
+sys.path.insert(0, os.path.abspath("../../mmcore-plugin/"))
 
 project = "navigate-mmcore-plugin"
-copyright = "2023, Dean Lab, UT Southwestern Medical Center"
+copyright = "2024, Dean Lab, UT Southwestern Medical Center"
 author = "Dean Lab, UT Southwestern Medical Center"
 
-
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
 extensions = [
     "sphinx.ext.duration",
     "sphinx.ext.doctest",
@@ -38,27 +21,9 @@ extensions = [
 ]
 
 autosectionlabel_prefix_document = True
-
-# Boolean indicating whether to scan all found documents for
-# autosummary directives, and to generate stub pages for each
-# (http://sphinx-doc.org/latest/ext/autosummary.html)
 autosummary_generate = True
-
-# Both the class’ and the __init__ method’s docstring are concatenated
-# and inserted.
 autoclass_content = "class"  # "both"
-
-# inheritance_graph_attrs = {'rankdir': "TB",
-#                           'clusterrank': 'local'}
-# inheritance_node_attrs  = {'style': 'filled'}
-
-# This value selects how automatically documented members are sorted
-# (http://sphinx-doc.org/latest/ext/autodoc.html)
 autodoc_member_order = "groupwise"
-
-# This value is a list of autodoc directive flags that should be
-# automatically applied to all autodoc
-# directives. (http://sphinx-doc.org/latest/ext/autodoc.html)
 autodoc_default_flags = [
     "members",
     "inherited-members",
