@@ -79,9 +79,9 @@ Detailed information on how to install **Micro-Manager** can be found `here
 Configure Devices in Micro-Manager
 -----------------------------------
 
-Next you should configure the devices in **Micro-Manager**. This is done by opening the
-Micro-Manager and using the Hardware Configuration Wizard. Importantly, all of the
-devices should be confirmed functional in **Micro-Manager** before proceeding to the next step.
+Next you should configure the devices in **Micro-Manager** and save the configuration file. 
+This is done by opening the Micro-Manager and using the Hardware Configuration Wizard. 
+Importantly, all of the devices should be confirmed functional in **Micro-Manager** before proceeding to the next step.
 
 Installation details for each device can be found `here <https://micro-manager.org/Device_Support>`_.
 
@@ -138,29 +138,27 @@ use a Physik Instrumente (PI) stage, the configuration file would look like this
 
 
   stage:
-    -
-      type: MMCore
-      controllername: C-884
-      stages: L-509.20DG10 L-509.40DG10 L-509.20DG10 M-060.DG M-406.4PD NOSTAGE
-      refmode: FRF FRF FRF FRF FRF FRF
-      serial_number: 119060508
-      config_path: "C:\\Program Files\\Micro-Manager-2.0\\test.cfg"
-    -
-      type: PI
-      controllername: E-709
-      stages: P-726.1CD
-      refmode: ATZ
-      serial_number: 0116049747
-    -
-      type: SyntheticStage
-      serial_number: 01234
+    hardware:
+      -
+        type: MMCore
+        serial_number: 119060508
+        config_path: "C:\\Program Files\\Micro-Manager-2.0\\test.cfg"
+        axes: [z] # axes used in navigate
+        axes_mapping: [z] # axes used in MMCore
+
+      -
+        type: PI
+        controllername: E-709
+        stages: P-726.1CD
+        refmode: ATZ
+        serial_number: 0116049747
+      -
+        type: SyntheticStage
+        serial_number: 01234
 
 Here, the first stage in the list, which is type ``MMCore``, is the stage that will be
-used by the **navigate-mmcore-plugin**. The ``controllername`` is the name of the stage
-controller in Micro-Manager, the ``stages`` are the stages that are available to the
-controller, the ``refmode`` is the reference mode of the stage, the ``serial_number`` is
-the serial number of the stage, and the ``config_path`` is the path to the Micro-Manager
-configuration file.
+used by the **navigate-mmcore-plugin**. The ``serial_number`` is the serial number of 
+the stage and the ``config_path`` is the path to the Micro-Manager configuration file.
 
 
 ---------------------

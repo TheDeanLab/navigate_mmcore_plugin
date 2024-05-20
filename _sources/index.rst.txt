@@ -30,7 +30,7 @@ Future versions of **navigate-mmcore-plugin** will support additional devices, i
 
 .. warning::
 
-    Not all devices supported by the Micro-Manager Core API have not been tested
+    Not all devices supported by the Micro-Manager Core API have been tested
     by the Dean Lab. They are available for use at your own risk.
     If you encounter any issues, please report them on as an issue on GitHub.
     No warranty is provided for the use of this software.

@@ -162,9 +162,9 @@ and configure Micro-Manager.</p>
 <p>Detailed information on how to install <strong>Micro-Manager</strong> can be found <a class="reference external" href="https://micro-manager.org/Micro-Manager_Installation_Notes">here</a>.</p>
 <section id="configure-devices-in-micro-manager">
 <h3>Configure Devices in Micro-Manager<a class="headerlink" href="#configure-devices-in-micro-manager" title="Permalink to this heading"></a></h3>
-<p>Next you should configure the devices in <strong>Micro-Manager</strong>. This is done by opening the
-Micro-Manager and using the Hardware Configuration Wizard. Importantly, all of the
-devices should be confirmed functional in <strong>Micro-Manager</strong> before proceeding to the next step.</p>
+<p>Next you should configure the devices in <strong>Micro-Manager</strong> and save the configuration file.
+This is done by opening the Micro-Manager and using the Hardware Configuration Wizard.
+Importantly, all of the devices should be confirmed functional in <strong>Micro-Manager</strong> before proceeding to the next step.</p>
 <p>Installation details for each device can be found <a class="reference external" href="https://micro-manager.org/Device_Support">here</a>.</p>
 </section>
 </section>
@@ -209,30 +209,28 @@ as a tab or a popup), and the path to the Micro-Manager device adapter.</p>
 device that you wish to use. For example, if we were to be configuring MMCore to
 use a Physik Instrumente (PI) stage, the configuration file would look like this:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">stage</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MMCore</span>
-<span class="w">    </span><span class="nt">controllername</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C-884</span>
-<span class="w">    </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">L-509.20DG10 L-509.40DG10 L-509.20DG10 M-060.DG M-406.4PD NOSTAGE</span>
-<span class="w">    </span><span class="nt">refmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FRF FRF FRF FRF FRF FRF</span>
-<span class="w">    </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">119060508</span>
-<span class="w">    </span><span class="nt">config_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Program</span><span class="nv"> </span><span class="s">Files\\Micro-Manager-2.0\\test.cfg&quot;</span>
-<span class="w">  </span><span class="p p-Indicator">-</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PI</span>
-<span class="w">    </span><span class="nt">controllername</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">E-709</span>
-<span class="w">    </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P-726.1CD</span>
-<span class="w">    </span><span class="nt">refmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ATZ</span>
-<span class="w">    </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0116049747</span>
-<span class="w">  </span><span class="p p-Indicator">-</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SyntheticStage</span>
-<span class="w">    </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">01234</span>
+<span class="w">  </span><span class="nt">hardware</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MMCore</span>
+<span class="w">      </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">119060508</span>
+<span class="w">      </span><span class="nt">config_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Program</span><span class="nv"> </span><span class="s">Files\\Micro-Manager-2.0\\test.cfg&quot;</span>
+<span class="w">      </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">z</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># axes used in navigate</span>
+<span class="w">      </span><span class="nt">axes_mapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">z</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># axes used in MMCore</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PI</span>
+<span class="w">      </span><span class="nt">controllername</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">E-709</span>
+<span class="w">      </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P-726.1CD</span>
+<span class="w">      </span><span class="nt">refmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ATZ</span>
+<span class="w">      </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0116049747</span>
+<span class="w">    </span><span class="p p-Indicator">-</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SyntheticStage</span>
+<span class="w">      </span><span class="nt">serial_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">01234</span>
 </pre></div>
 </div>
 <p>Here, the first stage in the list, which is type <code class="docutils literal notranslate"><span class="pre">MMCore</span></code>, is the stage that will be
-used by the <strong>navigate-mmcore-plugin</strong>. The <code class="docutils literal notranslate"><span class="pre">controllername</span></code> is the name of the stage
-controller in Micro-Manager, the <code class="docutils literal notranslate"><span class="pre">stages</span></code> are the stages that are available to the
-controller, the <code class="docutils literal notranslate"><span class="pre">refmode</span></code> is the reference mode of the stage, the <code class="docutils literal notranslate"><span class="pre">serial_number</span></code> is
-the serial number of the stage, and the <code class="docutils literal notranslate"><span class="pre">config_path</span></code> is the path to the Micro-Manager
-configuration file.</p>
+used by the <strong>navigate-mmcore-plugin</strong>. The <code class="docutils literal notranslate"><span class="pre">serial_number</span></code> is the serial number of
+the stage and the <code class="docutils literal notranslate"><span class="pre">config_path</span></code> is the path to the Micro-Manager configuration file.</p>
 </section>
 </section>
 <hr class="docutils" />
