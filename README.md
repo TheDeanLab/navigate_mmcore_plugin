@@ -14,7 +14,7 @@ cameras and other devices.
 
 ### Documentation
 
-Please refer to and contribute to the documentation, which can be found on GitHub Pages: [https://thedeanlab.github.io/navigate-mmcore-plugin/index.html].
+Please refer to and contribute to the documentation, which can be found on GitHub Pages: [https://thedeanlab.github.io/navigate-mmcore-plugin/](https://thedeanlab.github.io/navigate-mmcore-plugin/).
 
 ### Support
 
