@@ -12,6 +12,10 @@ microscope control software that enables users to interface with Micro-Manager d
 Currently, only stages and shutters are supported. Future releases will enable operation of
 cameras and other devices.
 
+### Documentation
+
+Please refer to and contribute to the documentation, which can be found on GitHub Pages: [https://thedeanlab.github.io/navigate-mmcore-plugin/index.html].
+
 ### Support
 
 For support or questions about using this template, please open an issue in the GitHub repository.
