@@ -24,9 +24,6 @@ dependencies = [
     'pymmcore',
 ]
 
-#[project.scripts]
-#navigate = "navigate.main:main"
-
 [project.optional-dependencies]
 dev = [
     "pytest",
