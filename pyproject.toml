@@ -49,4 +49,10 @@ docs = [
 Source = "https://github.com/TheDeanLab/navigate-mmcore-plugin"
 
 [tool.setuptools.dynamic]
-version = {file = "mmcore-plugin/VERSION"}
+version = {file = "navigate_mmcore_plugin/VERSION"}
+
+[project.entry-points."navigate.plugins"]
+navigate_mmcore_plugin = "navigate_mmcore_plugin"
+
+[tool.setuptools.package-data]
+navigate_mmcore_plugin_data = ["plugin_config.yml",]
